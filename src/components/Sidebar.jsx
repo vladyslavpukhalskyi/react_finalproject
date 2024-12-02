@@ -1,5 +1,6 @@
 import React from "react";
 import { Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 import { categories } from "../utils/constants";
 
 const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
@@ -12,27 +13,42 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
     }}
   >
     {categories.map((category) => (
-      <button
-        className="category-btn"
-        onClick={() => setSelectedCategory(category.name)}
-        style={{
-          background: category.name === selectedCategory && "#FC1503",
-          color: "white",
-        }}
+      <Link
+        to={`/category/${category.name}`} // шлях для кожної категорії
         key={category.name}
+        style={{ textDecoration: "none" }}
       >
-        <span style={{ color: category.name === selectedCategory ? "white" : "red", marginRight: "15px" }}>
-          {category.icon}
-        </span>
-        <span style={{ opacity: category.name === selectedCategory ? "1" : "0.8" }}>
-          {category.name}
-        </span>
-      </button>
+        <button
+          className="category-btn"
+          onClick={() => setSelectedCategory(category.name)}
+          style={{
+            background: category.name === selectedCategory && "#FC1503",
+            color: "white",
+          }}
+        >
+          <span
+            style={{
+              color: category.name === selectedCategory ? "white" : "red",
+              marginRight: "15px",
+            }}
+          >
+            {category.icon}
+          </span>
+          <span
+            style={{
+              opacity: category.name === selectedCategory ? "1" : "0.8",
+            }}
+          >
+            {category.name}
+          </span>
+        </button>
+      </Link>
     ))}
   </Stack>
 );
 
 export default Sidebar;
+
 
 
 
