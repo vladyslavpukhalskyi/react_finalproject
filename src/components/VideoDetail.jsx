@@ -13,11 +13,13 @@ const VideoDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
+    try {
+      fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
       .then((data) => setVideoDetail(data.items[0]));
 
-    fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`)
+      fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`)
       .then((data) => setVideos(data.items));
+    } catch (error) {console.error("Fetch videos", error)}
   }, [id]);
 
   if (!videoDetail?.snippet) return 'Loading...';
