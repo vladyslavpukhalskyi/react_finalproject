@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar';
 import Videos from './components/Videos';
 
 const Feed = () => {
-  const { categoryName } = useParams(); // отримуємо назву категорії з URL
+  const { categoryName } = useParams();
   const navigate = useNavigate();
 
   const [selectedCategory, setSelectedCategory] = useState(categoryName || "New");
@@ -26,11 +26,10 @@ const Feed = () => {
     navigate(`/category/${category}`);
   };
 
-  // додаємо клас до body для приховання скролу
   useEffect(() => {
     document.body.classList.add('disable-scroll');
     return () => {
-      document.body.classList.remove('disable-scroll'); // відновлюємо після виходу
+      document.body.classList.remove('disable-scroll');
     };
   }, []);
 
@@ -39,7 +38,7 @@ const Feed = () => {
       <Box sx={{ height: { sx: 'auto', md: '92vh' }, borderRight: '1px solid #3d3d3d', px: { sx: 0, md: 2 } }}>
         <Sidebar
           selectedCategory={selectedCategory}
-          setSelectedCategory={handleCategoryChange} // передаємо функцію навігації
+          setSelectedCategory={handleCategoryChange}
         />
 
         <Typography className="copyright" variant="body2" sx={{ mt: 1.5, color: '#fff' }}>
