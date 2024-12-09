@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { fetchFromAPI } from '../utils/fetchFromAPI';
-import Sidebar from './Sidebar';
-import Videos from './Videos';
+import { fetchFromAPI } from '../../utils/fetchFromAPI';
+import Sidebar from './components/Sidebar';
+import Videos from './components/Videos';
 
 const Feed = () => {
   const { categoryName } = useParams(); // отримуємо назву категорії з URL

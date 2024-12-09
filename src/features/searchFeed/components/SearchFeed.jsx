@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 
-import { fetchFromAPI } from '../utils/fetchFromAPI';
-import Videos from './Videos';
+import { fetchFromAPI } from '../../../utils/fetchFromAPI';
+import Videos from '../../feed/components/Videos';
 
 const SearchFeed = () => {
   const [videos, setVideos] = useState([]);

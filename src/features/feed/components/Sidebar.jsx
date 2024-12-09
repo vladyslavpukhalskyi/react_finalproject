@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack } from "@mui/material";
 import { Link } from "react-router-dom";
-import { categories } from "../utils/constants";
+import { categories } from "../../../utils/constants";
 
 const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
   <Stack
