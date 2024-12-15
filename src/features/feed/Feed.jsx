@@ -6,7 +6,7 @@ import { fetchFromAPI } from '../../utils/fetchFromAPI';
 import Videos from './components/Videos';
 
 const Feed = ({ selectedCategory, setSelectedCategory }) => {
-  const { categoryName } = useParams(); // отримуємо назву категорії з URL
+  const { categoryName } = useParams();
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
@@ -26,5 +26,6 @@ const Feed = ({ selectedCategory, setSelectedCategory }) => {
     </Box>
   );
 };
+
 
 export default Feed;
